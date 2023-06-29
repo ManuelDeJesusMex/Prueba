@@ -16,7 +16,7 @@ namespace Empleado23CV.Context
         {
 
             //Se coloca la cadena de conexion
-            optionsBuilder.UseMySQL("Server=localhost; database=23CV; user=root; password=;sql");
+            optionsBuilder.UseMySQL("Server=localhost; database=23CV; user=root; password=;");
 
             
 
