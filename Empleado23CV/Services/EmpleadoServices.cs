@@ -39,6 +39,6 @@ namespace Empleado23CV.Services
 				throw new Exception("Error: "+ex.Message);
 			}
         }
-
+        
     }
 }

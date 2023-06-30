@@ -15,9 +15,10 @@
         <Label Content="Apellido" HorizontalAlignment="Left" Height="29" Margin="24,129,0,0" VerticalAlignment="Top" Width="54"/>
         <Label Content="Correo" HorizontalAlignment="Left" Height="25" Margin="29,192,0,0" VerticalAlignment="Top" Width="54"/>
         <Button x:Name="btn_add" Content="Agregar" HorizontalAlignment="Left" Height="25" Margin="26,265,0,0" VerticalAlignment="Top" Width="164" Click="btn_add_Click"/>
-        <Button x:Name="btn_watch" Content="Ver" HorizontalAlignment="Left" Height="24" Margin="26,306,0,0" VerticalAlignment="Top" Width="164"/>
+        <Button x:Name="btn_watch" Content="Ver" HorizontalAlignment="Left" Height="24" Margin="26,306,0,0" VerticalAlignment="Top" Width="164" Click="btn_watch_Click"/>
         <Button x:Name="btn_delete" Content="Borrar" HorizontalAlignment="Left" Height="26" Margin="211,305,0,0" VerticalAlignment="Top" Width="164"/>
         <Button x:Name="btn_update" Content="Modificar" HorizontalAlignment="Left" Height="25" Margin="211,265,0,0" VerticalAlignment="Top" Width="164"/>
+        <TextBox x:Name="txtId" HorizontalAlignment="Left" Height="25" Margin="242,119,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="89"/>
 
     </Grid>
 </Window>

@@ -1,4 +1,5 @@
-﻿using Empleado23CV.Entities;
+﻿using Empleado23CV.Context;
+using Empleado23CV.Entities;
 using Empleado23CV.Services;
 using System;
 using System.Collections.Generic;
@@ -28,6 +29,10 @@ namespace Empleado23CV
             InitializeComponent();
         }
 
+        EmpleadoServices empleadoServices = new EmpleadoServices();
+        Empleados empl = new Empleados();
+
+
         private void btn_add_Click(object sender, RoutedEventArgs e)
         {
             Empleados empl = new Empleados();
@@ -54,6 +59,45 @@ namespace Empleado23CV
             }
 
             
+        }
+
+        public Empleados Read (int ID)
+        {
+
+            try
+            {
+                using (var _context = new ApplicationDbContext())
+                {
+
+                    Empleados empl = _context.Empleado.Find(ID);
+
+                    return empl;
+
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
+        }
+
+        private void btn_watch_Click(object sender, RoutedEventArgs e)
+        {
+            int id = int.Parse(txtId.Text);
+
+            Empleados empl = empleadoServices.Read(id);
+
+            if(empl != null)
+            {
+                txtNombre = empl.Nombre;
+            }
+            
+          
+
+
+
         }
     }
 }
