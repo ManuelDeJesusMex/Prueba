@@ -82,11 +82,6 @@ namespace Empleado23CV
             txtCorreo.Text = empl.Correo;
             txtFecha.Text = empl.FechaRegistro.ToString();
 
-
-
-
-
-
         }
 
         private void btn_delete_Click(object sender, RoutedEventArgs e)
@@ -101,50 +96,18 @@ namespace Empleado23CV
             txtCorreo.Text = empl.Correo;
             txtFecha.Text = empl.FechaRegistro.ToString();
 
-            MessageBox.Show("Se ha encontrado este usuario, ¿desea eliminar?");
+            MessageBox.Show("Se ha encontrado este usuario");
 
-            btnCancelar.IsEnabled = true;
-            btnConfirmar.IsEnabled = true;        
+           
+
             
+            //
+
             
 
-            btnConfirmar_Click(sender, e);
 
         }
 
-        private void btnCancelar_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Cancelado");
-
-            txtApellido.Clear();
-            txtCorreo.Clear();
-            txtFecha.Clear();
-            txtNombre.Clear();
-            txtId.Clear();
-
-            btnCancelar.IsEnabled = false;
-            btnConfirmar.IsEnabled = false;
-
-        }
-
-        private void btnConfirmar_Click(object sender, RoutedEventArgs e)
-        {
-            int id = int.Parse(txtId.Text);
-
-            Empleados emplB = empleadoServices.Delete(id);
-
-            MessageBox.Show("Eliminado");
-
-            txtApellido.Clear();
-            txtCorreo.Clear();
-            txtFecha.Clear();
-            txtNombre.Clear();
-            txtId.Clear();
-
-            btnCancelar.IsEnabled = false;
-            btnConfirmar.IsEnabled = false;
-
-
-        }
+     
     }
 }

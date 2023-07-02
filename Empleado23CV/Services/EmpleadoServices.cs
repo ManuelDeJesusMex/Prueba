@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Empleado23CV.Services
 {
@@ -62,19 +63,21 @@ namespace Empleado23CV.Services
 
         }
 
-        public Empleados Delete (int ID)
+        public void Delete (int ID)
         {
             try
             {
                 using (var _context = new ApplicationDbContext())
                 {
 
-                    Empleados emplD = _context.Empleado.Find(ID);
+                    Empleados emplD = _context.Empleado.Find();
 
                     _context.Empleado.Remove(emplD);
+                    _context.SaveChanges();
 
+                    MessageBox.Show("Eliminado");
 
-                    return emplD;
+                    
 
                 }
             }
