@@ -39,7 +39,7 @@ namespace Empleado23CV
         {
             Empleados empl = new Empleados();
             EmpleadoServices serv = new EmpleadoServices();
-            
+
             empl.Nombre = txtNombre.Text;
             empl.Apellido = txtApellido.Text;
             empl.Correo = txtCorreo.Text;
@@ -53,6 +53,7 @@ namespace Empleado23CV
 
                 txtNombre.Clear();
                 txtApellido.Clear();
+                txtCorreo.Clear();
 
                 MessageBox.Show("Los datos se guardaron correctaron");
             } else if (empl.Correo == null || empl.Apellido == null || empl.Nombre == null)
@@ -60,10 +61,10 @@ namespace Empleado23CV
                 Console.WriteLine("Hay campos vacíos");
             }
 
-            
+
         }
 
-        
+
 
 
 
@@ -76,9 +77,72 @@ namespace Empleado23CV
 
             Empleados empl = empleadoServices.Read(id);
 
-            
-          
+            txtNombre.Text = empl.Nombre;
+            txtApellido.Text = empl.Apellido;
+            txtCorreo.Text = empl.Correo;
+            txtFecha.Text = empl.FechaRegistro.ToString();
 
+
+
+
+
+
+        }
+
+        private void btn_delete_Click(object sender, RoutedEventArgs e)
+        {
+
+            int id = int.Parse(txtId.Text);
+
+            Empleados empl = empleadoServices.Read(id);
+
+            txtNombre.Text = empl.Nombre;
+            txtApellido.Text = empl.Apellido;
+            txtCorreo.Text = empl.Correo;
+            txtFecha.Text = empl.FechaRegistro.ToString();
+
+            MessageBox.Show("Se ha encontrado este usuario, ¿desea eliminar?");
+
+            btnCancelar.IsEnabled = true;
+            btnConfirmar.IsEnabled = true;        
+            
+            
+
+            btnConfirmar_Click(sender, e);
+
+        }
+
+        private void btnCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Cancelado");
+
+            txtApellido.Clear();
+            txtCorreo.Clear();
+            txtFecha.Clear();
+            txtNombre.Clear();
+            txtId.Clear();
+
+            btnCancelar.IsEnabled = false;
+            btnConfirmar.IsEnabled = false;
+
+        }
+
+        private void btnConfirmar_Click(object sender, RoutedEventArgs e)
+        {
+            int id = int.Parse(txtId.Text);
+
+            Empleados emplB = empleadoServices.Delete(id);
+
+            MessageBox.Show("Eliminado");
+
+            txtApellido.Clear();
+            txtCorreo.Clear();
+            txtFecha.Clear();
+            txtNombre.Clear();
+            txtId.Clear();
+
+            btnCancelar.IsEnabled = false;
+            btnConfirmar.IsEnabled = false;
 
 
         }

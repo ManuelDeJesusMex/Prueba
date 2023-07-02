@@ -16,9 +16,14 @@
         <Label Content="Correo" HorizontalAlignment="Left" Height="25" Margin="29,192,0,0" VerticalAlignment="Top" Width="54"/>
         <Button x:Name="btn_add" Content="Agregar" HorizontalAlignment="Left" Height="25" Margin="26,265,0,0" VerticalAlignment="Top" Width="164" Click="btn_add_Click"/>
         <Button x:Name="btn_watch" Content="Ver" HorizontalAlignment="Left" Height="24" Margin="26,306,0,0" VerticalAlignment="Top" Width="164" Click="btn_watch_Click"/>
-        <Button x:Name="btn_delete" Content="Borrar" HorizontalAlignment="Left" Height="26" Margin="211,305,0,0" VerticalAlignment="Top" Width="164"/>
+        <Button x:Name="btn_delete" Content="Borrar" HorizontalAlignment="Left" Height="26" Margin="211,305,0,0" VerticalAlignment="Top" Width="164" Click="btn_delete_Click"/>
         <Button x:Name="btn_update" Content="Modificar" HorizontalAlignment="Left" Height="25" Margin="211,265,0,0" VerticalAlignment="Top" Width="164"/>
-        <TextBox x:Name="txtId" HorizontalAlignment="Left" Height="25" Margin="242,119,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="89"/>
+        <TextBox x:Name="txtId" HorizontalAlignment="Left" Height="25" Margin="241,113,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="89"/>
+        <Label Content="ID" HorizontalAlignment="Left" Height="28" Margin="240,76,0,0" VerticalAlignment="Top" Width="84"/>
+        <Label Content="Fecha" HorizontalAlignment="Left" Height="32" Margin="231,168,0,0" VerticalAlignment="Top" Width="90"/>
+        <TextBox x:Name="txtFecha" HorizontalAlignment="Left" Height="32" Margin="228,214,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="88"/>
+        <Button x:Name="btnConfirmar" Content="Sí" HorizontalAlignment="Left" Height="26" Margin="61,343,0,0" VerticalAlignment="Top" Width="126" IsEnabled="False" Click="btnConfirmar_Click"/>
+        <Button x:Name="btnCancelar" Content="No" HorizontalAlignment="Left" Height="28" Margin="210,341,0,0" VerticalAlignment="Top" Width="143" IsEnabled="False" Click="btnCancelar_Click"/>
 
     </Grid>
 </Window>

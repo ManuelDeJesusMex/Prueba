@@ -61,5 +61,28 @@ namespace Empleado23CV.Services
             }
 
         }
+
+        public Empleados Delete (int ID)
+        {
+            try
+            {
+                using (var _context = new ApplicationDbContext())
+                {
+
+                    Empleados emplD = _context.Empleado.Find(ID);
+
+                    _context.Empleado.Remove(emplD);
+
+
+                    return emplD;
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Error: "+ex.Message);
+            }
+        }
     }
 }
