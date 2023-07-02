@@ -39,6 +39,27 @@ namespace Empleado23CV.Services
 				throw new Exception("Error: "+ex.Message);
 			}
         }
-        
+
+        public Empleados Read(int ID)
+        {
+
+            try
+            {
+                using (var _context = new ApplicationDbContext())
+                {
+
+                    Empleados empl = _context.Empleado.Find(ID);
+
+                    return empl;
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Error: " + ex.Message);
+            }
+
+        }
     }
 }

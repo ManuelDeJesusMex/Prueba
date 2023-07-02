@@ -63,38 +63,19 @@ namespace Empleado23CV
             
         }
 
-        public Empleados Read (int ID)
-        {
+        
 
-            try
-            {
-                using (var _context = new ApplicationDbContext())
-                {
 
-                    Empleados empl = _context.Empleado.Find(ID);
-
-                    return empl;
-
-                }
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-            
-        }
 
         private void btn_watch_Click(object sender, RoutedEventArgs e)
         {
             int id = int.Parse(txtId.Text);
 
+            //Empleados empl = empleadoServices.
+
+
             Empleados empl = empleadoServices.Read(id);
 
-            if(empl != null)
-            {
-                txtNombre = empl.Nombre;
-            }
             
           
 
