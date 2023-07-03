@@ -56,7 +56,7 @@ namespace Empleado23CV
                 txtCorreo.Clear();
 
                 MessageBox.Show("Los datos se guardaron correctaron");
-            } else if (empl.Correo == null || empl.Apellido == null || empl.Nombre == null)
+            } else if (txtNombre.Text == "" || txtApellido.Text == "" || txtCorreo.Text == "")
             {
                 Console.WriteLine("Hay campos vacíos");
             }
@@ -89,25 +89,53 @@ namespace Empleado23CV
 
             int id = int.Parse(txtId.Text);
 
-            Empleados empl = empleadoServices.Read(id);
+            empleadoServices.Delete(id);
 
-            txtNombre.Text = empl.Nombre;
-            txtApellido.Text = empl.Apellido;
-            txtCorreo.Text = empl.Correo;
-            txtFecha.Text = empl.FechaRegistro.ToString();
-
-            MessageBox.Show("Se ha encontrado este usuario");
-
-           
+            txtApellido.Clear();
+            txtCorreo.Clear();
+            txtNombre.Clear();
+            txtFecha.Clear();
+            txtId.Clear();
 
             
-            //
-
-            
-
-
         }
 
-     
+        private void btn_update_Click(object sender, RoutedEventArgs e)
+        {
+            if (txtId.Text == "")
+            {
+                MessageBox.Show("ID vacío");
+            } else
+            {
+                int id = int.Parse(txtId.Text);
+                if (txtNombre.Text == null && txtApellido.Text == null && txtCorreo.Text == null && txtId.Text == null & txtFecha.Text == null)
+                {
+                    MessageBox.Show("No hay usuario");
+                }
+                else
+                {
+                    empl.Nombre = txtNombre.Text;
+                    empl.Apellido = txtApellido.Text;
+                    empl.Correo = txtCorreo.Text;
+
+                    if (txtApellido.Text == "" && empl.Apellido == "" && txtCorreo.Text == "")
+                    {
+                        MessageBox.Show("Hay campos vacíos, por lo que se actualizarán de esa manera");
+                    }
+                    else
+                    {
+                        empleadoServices.Update(id, empl);
+                        txtApellido.Clear();
+                        txtCorreo.Clear();
+                        txtNombre.Clear();
+                        txtFecha.Clear();
+                        txtId.Clear();
+                    }
+
+                }
+            }
+
+            
+        }
     }
 }

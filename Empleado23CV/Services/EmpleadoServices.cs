@@ -70,15 +70,22 @@ namespace Empleado23CV.Services
                 using (var _context = new ApplicationDbContext())
                 {
 
-                    Empleados emplD = _context.Empleado.Find();
+                    Empleados emplD = _context.Empleado.Find(ID);
 
-                    _context.Empleado.Remove(emplD);
-                    _context.SaveChanges();
+                    if (emplD != null)
+                    {
+                        _context.Empleado.Remove(emplD);
+                        _context.SaveChanges();
 
-                    MessageBox.Show("Eliminado");
+                        MessageBox.Show("Eliminado");
 
-                    
 
+                        
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se encontró el usuario");
+                    }
                 }
             }
             catch (Exception ex)
@@ -87,5 +94,35 @@ namespace Empleado23CV.Services
                 throw new Exception("Error: "+ex.Message);
             }
         }
+
+        public void Update (int ID, Empleados empleados)
+        {
+            try
+            {
+                using (var _context = new ApplicationDbContext())
+                {
+                    Empleados emplActu = _context.Empleado.Find(ID);
+
+                    if (emplActu != null)
+                    {
+                        emplActu.Nombre = empleados.Nombre;
+                        emplActu.Apellido = empleados.Apellido;
+                        emplActu.Correo = empleados.Correo;
+                        
+                        _context.Update(emplActu);
+                        _context.SaveChanges();
+
+                        MessageBox.Show("Datos actualizados");
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception ("Error: "+ex.Message);
+            }
+        }
+
     }
 }
