@@ -102,61 +102,40 @@ namespace Empleado23CV
 
         private void btn_update_Click(object sender, RoutedEventArgs e)
         {
-            //if (txtId.Text == "")
-            //{
-            //    MessageBox.Show("ID vacío");
-            //} else
-            //{
-            //    int id = int.Parse(txtId.Text);
-            //    if (txtNombre.Text == null && txtApellido.Text == null && txtCorreo.Text == null && txtId.Text == null & txtFecha.Text == null)
-            //    {
-            //        MessageBox.Show("No hay usuario");
-            //    }
-            //    else
-            //    {
-            //        empl.Nombre = txtNombre.Text;
-            //        empl.Apellido = txtApellido.Text;
-            //        empl.Correo = txtCorreo.Text;
-
-            //        if (txtApellido.Text == "" && empl.Apellido == "" && txtCorreo.Text == "")
-            //        {
-            //            MessageBox.Show("Hay campos vacíos, por lo que se actualizarán de esa manera");
-            //        }
-            //        else
-            //        {
-            //            empleadoServices.Update(id, empl);
-            //            txtApellido.Clear();
-            //            txtCorreo.Clear();
-            //            txtNombre.Clear();
-            //            txtFecha.Clear();
-            //            txtId.Clear();
-            //        }
-
-            //    }
-
-            if (int.TryParse(txtId.Text, out int id))
+            if (txtId.Text == "")
             {
-                Empleados empleadoactu = new Empleados()
+                MessageBox.Show("ID vacío");
+            } else
+            {
+                int id = int.Parse(txtId.Text);
+                if (txtNombre.Text == null && txtApellido.Text == null && txtCorreo.Text == null && txtId.Text == null & txtFecha.Text == null)
                 {
-                    Nombre = txtNombre.Text,
-                    Apellido = txtApellido.Text,
-                    Correo = txtCorreo.Text,
-                    FechaRegistro = DateTime.Now
-                };
+                    MessageBox.Show("No hay usuario");
+                }
+                else
+                {
+                    empl.Nombre = txtNombre.Text;
+                    empl.Apellido = txtApellido.Text;
+                    empl.Correo = txtCorreo.Text;
 
-                empleadoServices.Update(id, empleadoactu);
+                    if (txtApellido.Text == "" && empl.Apellido == "" && txtCorreo.Text == "")
+                    {
+                        MessageBox.Show("Hay campos vacíos, por lo que se actualizarán de esa manera");
+                    }
+                    else
+                    {
+                        empleadoServices.Update(id, empl);
+                        txtApellido.Clear();
+                        txtCorreo.Clear();
+                        txtNombre.Clear();
+                        txtFecha.Clear();
+                        txtId.Clear();
+                    }
 
-                txtApellido.Clear();
-                txtCorreo.Clear();
-                txtNombre.Clear();
-                txtFecha.Clear();
-                txtId.Clear();
-            } 
-
-
-        }
+                }
+            }
 
             
-        
+        }
     }
 }
